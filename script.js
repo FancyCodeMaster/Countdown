@@ -25,20 +25,20 @@ const day = hour * 24;
 
 // updateLocalStorage function to update the local storage
 const updateLocalStorage = () => {
-    
-    // Hide the input container
-    inputContainer.hidden  = true;
+    if(localStorage.getItem("countdown")) {
+        // Hide the input container
+        inputContainer.hidden  = true;
 
-    // the localStorage is in the JSON string form first we have to convert it into object
-    const getSavedData = JSON.parse(localStorage.getItem("countdown"));
+        // the localStorage is in the JSON string form first we have to convert it into object
+        const getSavedData = JSON.parse(localStorage.getItem("countdown"));
 
-    // Assigining the stored date and title to the entered title so that it would run eventually from our stored data
-    enteredTitle = getSavedData.title;
-    enteredDate = getSavedData.date;
+        // Assigining the stored date and title to the entered title so that it would run eventually from our stored data
+        enteredTitle = getSavedData.title;
+        enteredDate = getSavedData.date;
 
-    // Running updateTime function which will hide the input container and dynamically display countdown container and complete container.
-    updateTime();
-    
+        // Running updateTime function which will hide the input container and dynamically display countdown container and complete container.
+        updateTime();
+    }
 
 };
 
